@@ -4,7 +4,6 @@ from .models import Post, Category, Tag
 from .serializers import PostSerializer, CategorySerializer, TagSerializer
 from django.http import HttpResponse
 
-
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer

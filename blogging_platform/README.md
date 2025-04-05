@@ -2,7 +2,7 @@
 
 A Django REST Framework API for a feature-rich blogging platform with authentication, permissions, and advanced features.
 
-## Features
+## Backend Features
 
 - **User Authentication**: Register, login, and logout functionality
 - **Post Management**: Create, read, update, and delete blog posts
@@ -21,6 +21,21 @@ A Django REST Framework API for a feature-rich blogging platform with authentica
 - **Advanced Filtering**: Filter by multiple criteria
 - **Full-Text Search**: Search across all content
 - **Sorting and Pagination**: Order results and paginate for better performance
+
+## Frontend Integration
+
+This API is fully integrated with a React frontend located in the `frontend/` directory. The frontend provides:
+
+- Modern, responsive UI built with React and Bootstrap
+- Complete user authentication flow with token management
+- Post creation, editing, and deletion interfaces
+- Draft post management
+- Post listing and filtering by category, tag, or author
+- Search functionality
+- User profiles
+- Comment system with replies
+
+To run the frontend, see the [root README.md](../README.md) for setup instructions.
 
 ## API Endpoints
 
@@ -119,4 +134,50 @@ Authentication is required for:
 - Liking posts
 - Accessing draft posts (only own drafts)
 - Creating comments
-- Replying to comments 
+- Replying to comments
+
+## Development Setup
+
+1. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Run migrations:
+   ```bash
+   python manage.py migrate
+   ```
+
+4. Create default categories:
+   ```bash
+   python create_default_category.py
+   ```
+
+5. Create a superuser:
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+6. Run the development server:
+   ```bash
+   python manage.py runserver
+   ```
+
+7. Access the API at http://localhost:8000/api/
+
+## Testing
+
+Run the test suite with:
+```bash
+python manage.py test
+```
+
+## Troubleshooting
+
+If you encounter any issues with the API, check the debug endpoint at http://localhost:3000/debug in the frontend application for testing API functionality. 

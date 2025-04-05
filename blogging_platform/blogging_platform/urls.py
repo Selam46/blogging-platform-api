@@ -17,11 +17,16 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from blog.views import home  
+from blog.views import home
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', home, name='home'),  
     path('api/', include('blog.urls')),
     path('accounts/', include('accounts.urls')),
+    # Redirect for common API endpoints, for easier access
+    path('api/posts/', RedirectView.as_view(pattern_name='post-list')),
+    path('api/categories/', RedirectView.as_view(pattern_name='category-list')),
+    path('api/tags/', RedirectView.as_view(pattern_name='tag-list')),
 ]
